@@ -1,0 +1,1 @@
+{"name":"Local: 2","url":"/Users/lakhman/Desktop/PPS_SUBMISSONS/PPSII_CE081_LAB7/2.cpp","tests":[{"id":1681473959196,"input":"0 10\n20 10\n0 0\n20 0\n4\nR 10\nU 10\nA I T 5\nA D L 5","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/Users/lakhman/Desktop/PPS_SUBMISSONS/PPSII_CE081_LAB7/2.cpp","group":"local","local":true}

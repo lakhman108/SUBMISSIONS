@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button
+    onclick="
+    play('stone');
+    "
+    >stone</button>
+    <button
+    onclick="
+    play('paper');
+    "
+    >paper</button>
+    <button
+    onclick="
+    play('scissor');
+    "
+    >scissor</button>
+
+    <button
+    onclick="
+        result.win = 0;
+        result.loss = 0;
+        result.tie = 0;
+    console.log(result);
+    localStorage.removeItem('result1');
+    "
+    >
+        reset button
+    </button>
+
+
+    <script>
+        var cMove = 0;
+        let vMove;
+        let result =
+        JSON.parse(localStorage.getItem('result1'))
+        || {
+            win : 0,
+            loss : 0,
+            tie : 0
+        };
+        
+        function findmove(){
+            let cMove = Math.random();
+            
+            if(cMove <= 0.33){
+                vMove = 'stone';
+            }else if(cMove <= 0.66){
+                vMove = 'paper';
+            }else{
+                vMove = 'scissor';
+            }
+        }
+
+        function play(harshil){
+            findmove();
+            if(harshil === 'stone'){
+                if(vMove === 'stone'){
+                    result.tie++;
+                }else if(vMove === 'paper'){
+                    result.loss++;
+                }else{
+                    result.win++;
+                }
+            }
+           else  if(harshil === 'paper'){
+                if(vMove === 'stone'){
+                    result.win++;
+                }else if(vMove === 'paper'){
+                    result.tie++;
+                }else{
+                    result.loss++;
+                }
+            }
+            else{
+                if(vMove === 'stone'){
+                    result.loss++;
+                }else if(vMove === 'paper'){
+                    result.win++;
+                }else{
+                    result.tie++;
+                }
+            }
+            localStorage.setItem('result1',JSON.stringify(result));
+            console.log(`computermove ${vMove}`);
+            console.log(result);
+
+        }
+    </script>
+</body>
+</html>
